@@ -12,6 +12,7 @@ function NewOrderPage() {
     }
 
     const handleSubmit = async (e) => {
+        
         handleChange()
     };
     return(
