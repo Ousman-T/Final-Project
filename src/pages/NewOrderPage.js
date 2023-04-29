@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function NewOrderPage() {
     const [newTodo, setNewTodo] = useState({
-      todo:  "",
+      todoName: "",
       todoDetails: "",
       done: false
     })
@@ -19,11 +19,11 @@ function NewOrderPage() {
     <div>
         <h1>Create a new ToDo</h1>
         <form  autoComplete="off" action="/orders/new" method="POST" onSubmit={handleSubmit}>
-            ToDo Name:<input type="text" name="ToDo Name"/>
+            ToDo Name:<input type="text" name="todoName"/>
             <br />
-            ToDo Details:<input type="text" name="ToDo Details"/>
+            ToDo Details:<input type="text" name="todoDetails"/>
             <br />
-            Done?<input type="checkbox" name="Done?"/>
+            Done?<input type="checkbox" name="done"/>
             <br />
             <button type="submit" onSubmit={handleSubmit}>Create To Do</button>
 
