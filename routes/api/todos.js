@@ -13,7 +13,7 @@ const app = express();
 router.post('/orders/new', todosCtrl.create);
 
 // * Get
-router.get('/orders/todos', todosCtrl.get)
+router.post('/orders/todos', todosCtrl.get)
 
 
 

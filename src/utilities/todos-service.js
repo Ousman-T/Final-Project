@@ -19,3 +19,13 @@ export async function createTodos(todoData) {
     return token; 
 }
 
+export async function getTodos(userData) {
+    // Delegate the network request code to the users-api.js API module
+   // which will ultimately return a JSON Web Token (JWT)
+   // console.log('[From SignUP function]', userData);
+   console.log("Create todos In service");
+   const token = await usersApi.getTodos(userData);
+   // saves token to localStorage   
+   return token; 
+}
+

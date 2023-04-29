@@ -1,7 +1,20 @@
 import { checkToken } from "../utilities/users-service";
+import { useState, useEffect } from "react";
+import { getTodos } from "../utilities/todos-service";
 
-
-function OrderHistoryPage() {
+function OrderHistoryPage({user}) {
+  const [todos, setTodos] = useState([]);
+  async function getUsersTodos(){
+    try{
+      return await getTodos({"name":user.name})
+    } catch(errors){
+      console.log(errors);
+    }
+  } 
+  useEffect(() => {
+    const res = getUsersTodos()
+    setTodos(res);
+  }, []);
 
   const handleCheckToken = async () => {
     const expDate = await checkToken();

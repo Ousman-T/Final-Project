@@ -32,6 +32,12 @@ export function createTodos(todoData){
   return sendRequest(`${BASE_URL}/orders/new`, 'POST', todoData)
 }
 
+// * Get todos
+export function getTodos(userData){
+  console.log("Create Todos UserAPI");
+  return sendRequest(`${BASE_URL}/orders/todos`, 'POST', userData)
+}
+
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = 'GET', payload = null) {
