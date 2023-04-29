@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createTodos } from "../utilities/todos-service";
 
 function NewOrderPage(user) {
     const [newTodo, setNewTodo] = useState({
@@ -14,19 +15,24 @@ function NewOrderPage(user) {
     }
 
     const handleSubmit = async (e) => {
+        console.log('Button clicked');
         e.preventDefault();
 
         try {
             console.log(newTodo);
 
-            const newTodo = {
+            const todoData = {
                 todoName: newTodo.todoName,
                 todoDetails: newTodo.todoDetails,
                 done: newTodo.done,
-                userName: user.name
+                userName: "Momo"
         } 
+        const response = createTodos(todoData)
+        console.log(response);
 
     } catch(error) {
+        console.log("Error happend in Catch");
+        console.log(error);
         setNewTodo({...newTodo, error: "Problem Saving Todo"})
     }};
     return(
@@ -45,7 +51,7 @@ function NewOrderPage(user) {
     </div>
         )
     }    
-}
+
 
 
 

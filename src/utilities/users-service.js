@@ -23,7 +23,6 @@ export function getToken() {
 
     // token is valid
     return token;
-
 }
 
 //* Get User

@@ -28,6 +28,7 @@ export function checkToken() {
 
 // * Export Api/Users/Todos
 export function createTodos(todoData){
+  console.log("Create Todos UserAPI");
   return sendRequest(`${BASE_URL}/orders/new`, 'POST', todoData)
 }
 
