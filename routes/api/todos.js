@@ -12,6 +12,9 @@ const app = express();
 // * POST
 router.post('/orders/new', todosCtrl.create);
 
+// * Get
+router.get('/orders/todos', todosCtrl.get)
+
 
 
 module.exports = router;

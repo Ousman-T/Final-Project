@@ -16,6 +16,23 @@ async function create(req, res) {
     }
 }
 
+async function get(req, res) {
+    // console.log('[From POST handler]', req.body)
+    try {
+        //* creating a new Todo
+        const todo = await Todo.find({"name":req.body}, ({}, (error, allTodos) => {
+            res.render()
+        }));
+        console.log(todo);
+        res.json(todo);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error)
+    }
+}
+
 module.exports = {
-    create
+    create,
+    get
 }

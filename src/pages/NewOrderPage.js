@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createTodos } from "../utilities/todos-service";
 
-function NewOrderPage(user) {
+function NewOrderPage({user}) {
     const [newTodo, setNewTodo] = useState({
       todoName: "",
       todoDetails: "",
@@ -16,6 +16,7 @@ function NewOrderPage(user) {
 
     const handleSubmit = async (e) => {
         console.log('Button clicked');
+        console.log(user.name);
         e.preventDefault();
 
         try {
@@ -25,10 +26,11 @@ function NewOrderPage(user) {
                 todoName: newTodo.todoName,
                 todoDetails: newTodo.todoDetails,
                 done: newTodo.done,
-                userName: "Momo"
+                userName: user.name
         } 
-        const response = createTodos(todoData)
+        const response = await createTodos(todoData)
         console.log(response);
+        alert('Todo Stored to Database!')
 
     } catch(error) {
         console.log("Error happend in Catch");
