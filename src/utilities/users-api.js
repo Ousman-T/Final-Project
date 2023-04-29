@@ -26,6 +26,11 @@ export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`)
 } 
 
+// * Export Api/Users/Todos
+export function createTodos(todoData){
+  return sendRequest(`${BASE_URL}/orders/new`, 'POST', todoData)
+}
+
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = 'GET', payload = null) {

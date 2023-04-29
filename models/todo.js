@@ -4,9 +4,10 @@ const Schema = mongoose.Schema;
 
 // Todo Schema
 const todoSchema = new Schema({
-    todo: {type: String, required: true},
+    todoName: {type: String, required: true},
     todoDetails: { type: String, required: true},
-    done: Boolean
+    done: Boolean,
+    userName: {type: String, required: true}
 });
 
 const Todo = mongoose.model('Todo', todoSchema);

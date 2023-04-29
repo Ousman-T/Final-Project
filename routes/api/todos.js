@@ -11,9 +11,10 @@ const app = express();
 
 // * POST
 router.post('/', todosCtrl.create);
-// app.post('/orders/new', (req, res) => {
-//     console.log(req.body)
-// })
+
+app.post('/orders/new', (req, res) => {
+    console.log(req.body)
+})
 
 
 
