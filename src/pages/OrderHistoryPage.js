@@ -4,6 +4,7 @@ import { getTodos } from "../utilities/todos-service";
 
 function OrderHistoryPage({user}) {
   const [todos, setTodos] = useState([]);
+  const [isDoneLoading, setIsDoneLoading] = useState(false)
   async function getUsersTodos(){
     try{
       return await getTodos({"name":user.name})
@@ -11,9 +12,14 @@ function OrderHistoryPage({user}) {
       console.log(errors);
     }
   } 
-  useEffect(() => {
-    const res = getUsersTodos()
-    setTodos(res);
+  useEffect(function () {
+    async function fetchTodo(){
+      const res = await getUsersTodos()
+      setTodos(res);
+      setIsDoneLoading(true);
+      console.log(res);
+    }
+    fetchTodo();
   }, []);
 
   const handleCheckToken = async () => {
@@ -24,6 +30,18 @@ function OrderHistoryPage({user}) {
   return (
     <div>
       <h1>View To Dos</h1>
+      {isDoneLoading == true}{
+        todos.map(todo => {
+          return(
+            <>
+            <h3>{todo.todoName}</h3>
+            <p>{todo.todoDetails}</p>
+            <p>{todo.done}</p>
+            </>
+          )
+        })}
+      
+      
       <button onClick={handleCheckToken}>
         Check When My Login Token Expires
       </button>

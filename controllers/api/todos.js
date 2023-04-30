@@ -20,12 +20,10 @@ async function get(req, res) {
     // console.log('[From POST handler]', req.body)
     try {
         //* creating a new Todo
-        const todo = await Todo.find({"name":"momo"}, (error, allTodos) => {
-            // res.json(allTodos);
-            return allTodos;
-        });
+        console.log(req.body.name);
+        const todo = await Todo.find({name: req.body.name}).exec();
         console.log(todo);
-        res.json(todo);
+        res.status(200).json(todo);
         
     } catch (error) {
         console.log(error);
