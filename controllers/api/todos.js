@@ -31,18 +31,27 @@ async function get(req, res) {
     }
 }
 // * Update Logic
-module.exports.update = async (req, res) => {
-    const {_id, text} = req.body
+async function update(req, res){
+    const{_id, text} = req.body
     Todo.findByIdAndUpdate(_id, {text})
     .then(() => {
         console.log("Todo Updated");
         res.redirect('/')
     })
+}
+// * Delete Logic
+async function deleteTodo(req, res){
+    const {_id} = req.body
+    Todo.findByIdAndDelete(_id)
+    .then(() => {
+        console.log("Todo Deleted");
+        res.redirect('/')
+    })
     .catch((error) => console.error(error))
 }
 
-
 module.exports = {
     create,
-    get
+    get,
+    deleteTodo
 }
