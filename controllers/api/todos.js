@@ -53,5 +53,6 @@ async function deleteTodo(req, res){
 module.exports = {
     create,
     get,
-    deleteTodo
+    deleteTodo,
+    update
 }

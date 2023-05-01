@@ -37,7 +37,8 @@ function OrderHistoryPage({user}) {
             <h3>{todo.todoName}</h3>
             <p>{todo.todoDetails}</p>
             <p>{todo.done}</p>
-            <button>Edit Delete</button>
+            <button>Edit</button>
+            <button>Delete</button>
             </>
           )
         })}
