@@ -1,7 +1,7 @@
 // * Request handler Logic
 const Todo = require('../../models/todo');
 
-
+// * Create Logic
 async function create(req, res) {
     // console.log('[From POST handler]', req.body)
     try {
@@ -15,7 +15,7 @@ async function create(req, res) {
         res.status(400).json(error)
     }
 }
-
+//* Read Logic
 async function get(req, res) {
     // console.log('[From POST handler]', req.body)
     try {
@@ -30,6 +30,17 @@ async function get(req, res) {
         res.status(400).json(error)
     }
 }
+// * Update Logic
+module.exports.update = async (req, res) => {
+    const {_id, text} = req.body
+    Todo.findByIdAndUpdate(_id, {text})
+    .then(() => {
+        console.log("Todo Updated");
+        res.redirect('/')
+    })
+    .catch((error) => console.error(error))
+}
+
 
 module.exports = {
     create,
