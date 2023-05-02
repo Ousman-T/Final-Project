@@ -16,6 +16,7 @@ router.post('/', todosCtrl.get)
 
 // * Get
 router.post('/orders/todos', todosCtrl.get);
+router.delete('/orders/todos', todosCtrl.deleteTodo);
 router.get('/', todosCtrl.getAllTodos);
 router.get('/:id', todosCtrl.getTodoByID);
 router.post('/update', todosCtrl.update);

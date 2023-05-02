@@ -5,36 +5,16 @@
 //* handleSubmit <--> [signUp]-users-service <--> [signUp]-users-api <-Internet-> server.js (Express)
 
 import * as usersApi from './users-api';
-import { create, get, deleteTodo, update, getAllTodos, getTodoByID } from "../../controllers/api/todos";
 const BASE_URL = '/api/users';
 
 //* Get User
 
-//* SignUp
-export async function createTodos(todoData) {
-     // Delegate the network request code to the users-api.js API module
-    // which will ultimately return a JSON Web Token (JWT)
-    // console.log('[From SignUP function]', userData);
-    console.log("Create todos In service");
-    const token = await usersApi.createTodos(todoData);
-    // saves token to localStorage   
-    return token; 
-}
 
-export async function getTodos(userData) {
-    // Delegate the network request code to the users-api.js API module
-   // which will ultimately return a JSON Web Token (JWT)
-   // console.log('[From SignUP function]', userData);
-   console.log("Create todos In service");
-   const token = await usersApi.getTodos(userData);
-   // saves token to localStorage   
-   return token; 
-}
 
-export async function removeTodo(todoData){
-    console.log("deleting todo...");
-    deleteTodo()
-}
+
+
+
+
 
 
 

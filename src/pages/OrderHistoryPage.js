@@ -1,7 +1,7 @@
 import { checkToken } from "../utilities/users-service";
 import { useState, useEffect } from "react";
-import { getTodos } from "../utilities/todos-service";
-import { removeTodo } from "../utilities/todos-service";
+import { getTodos } from "../utilities/users-api";
+import { getRidOfTodo } from "../utilities/users-api";
 
 function OrderHistoryPage({user}) {
   const [todos, setTodos] = useState([]);
@@ -27,6 +27,9 @@ function OrderHistoryPage({user}) {
     const expDate = await checkToken();
     console.log(expDate);
   };
+  function deleteTodo(id){
+    getRidOfTodo({"_id":id})
+  }
 
   return (
     <div>
@@ -39,7 +42,7 @@ function OrderHistoryPage({user}) {
             <p>{todo.todoDetails}</p>
             <p>{todo.done}</p>
             <button>Edit</button>
-            <button onClick={removeTodo}>Delete</button>
+            <button onClick={deleteTodo(todo._id)}>Delete</button>
             </>
           )
         })}
