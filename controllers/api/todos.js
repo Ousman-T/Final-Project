@@ -15,6 +15,16 @@ async function create(req, res) {
         res.status(400).json(error)
     }
 }
+
+// * Get All Todos
+async function getAllTodos(req, res){
+    try{
+        const todos = await Todo.find({})
+        return res.json(todos)
+    } catch (errors){
+        return res.status(500).json({error: error.toSring()});
+    }
+}
 //* Read Logic
 async function get(req, res) {
     // console.log('[From POST handler]', req.body)
@@ -50,9 +60,24 @@ async function deleteTodo(req, res){
     .catch((error) => console.error(error))
 }
 
+// * Get todos by ID
+async function getTodoByID(req, res){
+    try{
+        const todo = await Todo.findById(req.params.id);
+        if(!todo){
+            return res.status(404).json({message: 'Todo Not Found'})
+        }
+        return res.json(todo)
+    } catch (error){
+        return res.status(500).json({error: error.toSring()})
+    }
+}
+
 module.exports = {
     create,
     get,
     deleteTodo,
-    update
+    update,
+    getAllTodos,
+    getTodoByID
 }
