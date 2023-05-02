@@ -1,7 +1,7 @@
 import { checkToken } from "../utilities/users-service";
 import { useState, useEffect } from "react";
 import { getTodos } from "../utilities/users-api";
-import { getRidOfTodo } from "../utilities/users-api";
+import { getRidOfTodo, updateTodo } from "../utilities/users-api";
 
 function OrderHistoryPage({user}) {
   const [todos, setTodos] = useState([]);
@@ -35,6 +35,14 @@ function OrderHistoryPage({user}) {
     })
 
   }
+  async function update(id){
+    const data = document.getElementById(id).value
+    const response = await updateTodo({"_id": id, "text": data})
+    response.then (() => {
+      console.log('updating');
+      window.location.reload();
+    });
+  };
 
   return (
     <div>
@@ -44,9 +52,9 @@ function OrderHistoryPage({user}) {
           return(
             <>
             <h3>{todo.todoName}</h3>
-            <p>{todo.todoDetails}</p>
+            <input type="text" value={todo.todoDetails} placeholder={todo.todoDetails} id={todo._id}></input>
             <p>{todo.done}</p>
-            <button>Edit</button>
+            <button onClick={() => {update(todo._id)}}>Edit</button>
             <button onClick={() => {deleteTodo(todo._id)}}>Delete</button>
             </>
           )

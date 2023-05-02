@@ -41,6 +41,10 @@ export function getTodos(userData){
 export function getRidOfTodo(todoData){
   return sendRequest(`${BASE_URL}/orders/todos`, 'DELETE', todoData)
 }
+// *? Update Todo
+export function updateTodo(todoData){
+  return sendRequest(`${BASE_URL}/orders/todos/update`, 'PUT', todoData)
+}
 
 /*--- Helper Functions ---*/
 
