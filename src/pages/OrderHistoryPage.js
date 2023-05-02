@@ -6,6 +6,7 @@ import { getRidOfTodo, updateTodo } from "../utilities/users-api";
 function OrderHistoryPage({user}) {
   const [todos, setTodos] = useState([]);
   const [isDoneLoading, setIsDoneLoading] = useState(false)
+  const [text, setText] = useState([]);
   async function getUsersTodos(){
     try{
       return await getTodos({"name":user.name})
@@ -29,19 +30,27 @@ function OrderHistoryPage({user}) {
   };
   async function deleteTodo(id){
    const response = await getRidOfTodo({"_id":id})
-   response.then (() => {
-     console.log("hello");
-     window.location.reload();
-    })
+   console.log(response);
+   window.location.reload();
+  //  response.then (() => {
+  //    console.log("hello");
+  //    window.location.reload();
+  //   })
 
   }
   async function update(id){
     const data = document.getElementById(id).value
-    const response = await updateTodo({"_id": id, "text": data})
-    response.then (() => {
-      console.log('updating');
-      window.location.reload();
-    });
+    console.log(data);
+    const response = await updateTodo({"_id": id, "todoDetails": data})
+    console.log(response);
+    console.log('updating');
+    window.location.reload();
+    // response.then (() => {
+    //   window.location.reload();
+    // });
+  };
+  const handleChange = event => {
+    setText(event.target.value)
   };
 
   return (
@@ -52,7 +61,12 @@ function OrderHistoryPage({user}) {
           return(
             <>
             <h3>{todo.todoName}</h3>
-            <input type="text" value={todo.todoDetails} placeholder={todo.todoDetails} id={todo._id}></input>
+            <input 
+            type="text" 
+            // value={todo.todoDetails} 
+            placeholder={todo.todoDetails} 
+            id={todo._id}
+            onChange={handleChange}></input>
             <p>{todo.done}</p>
             <button onClick={() => {update(todo._id)}}>Edit</button>
             <button onClick={() => {deleteTodo(todo._id)}}>Delete</button>

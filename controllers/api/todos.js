@@ -42,20 +42,21 @@ async function get(req, res) {
 }
 // * Update Logic
 async function update(req, res){
-    const{_id, text} = req.body
-    Todo.findByIdAndUpdate(_id, {text})
+    const{_id, todoDetails} = req.body
+   const todo = Todo.findByIdAndUpdate(_id, {todoDetails})
     .then(() => {
         console.log("Todo Updated");
-        res.redirect('/')
+        res.status(200).json(todo);
     })
+    .catch((error) => console.error(error))
 }
 // * Delete Logic
 async function deleteTodo(req, res){
     const {_id} = req.body
-    Todo.findByIdAndDelete(_id)
+    const todo = Todo.findByIdAndDelete(_id)
     .then(() => {
         console.log("Todo Deleted");
-        // res.redirect('/')
+        res.status(200).json(todo);
     })
     .catch((error) => console.error(error))
 }

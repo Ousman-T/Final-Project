@@ -21,7 +21,7 @@ export function getTodos(userData){
 // * Update Todos
 export function updateTodos(todoData){
 console.log("Updating Todos");
-return sendRequest(`${BASE_URL}/orders/todos/update`, 'POST', todoData)
+return sendRequest(`${BASE_URL}/orders/todos`, 'POST', todoData)
 }
 
 // * Delete Todos

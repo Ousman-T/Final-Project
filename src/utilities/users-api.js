@@ -43,7 +43,7 @@ export function getRidOfTodo(todoData){
 }
 // *? Update Todo
 export function updateTodo(todoData){
-  return sendRequest(`${BASE_URL}/orders/todos/update`, 'PUT', todoData)
+  return sendRequest(`${BASE_URL}/orders/todos`, 'PUT', todoData)
 }
 
 /*--- Helper Functions ---*/
@@ -55,6 +55,7 @@ async function sendRequest(url, method = 'GET', payload = null) {
   if (payload) {
     options.headers = { 'Content-Type': 'application/json' };
     options.body = JSON.stringify(payload);
+    console.log("here we are");
   }
 
   // sends token to backend
