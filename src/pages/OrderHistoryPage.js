@@ -27,8 +27,13 @@ function OrderHistoryPage({user}) {
     const expDate = await checkToken();
     console.log(expDate);
   };
-  function deleteTodo(id){
-    getRidOfTodo({"_id":id})
+  async function deleteTodo(id){
+   const response = await getRidOfTodo({"_id":id})
+   response.then (() => {
+     console.log("hello");
+     window.location.reload();
+    })
+
   }
 
   return (
@@ -42,7 +47,7 @@ function OrderHistoryPage({user}) {
             <p>{todo.todoDetails}</p>
             <p>{todo.done}</p>
             <button>Edit</button>
-            <button onClick={deleteTodo(todo._id)}>Delete</button>
+            <button onClick={() => {deleteTodo(todo._id)}}>Delete</button>
             </>
           )
         })}

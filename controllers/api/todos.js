@@ -55,7 +55,7 @@ async function deleteTodo(req, res){
     Todo.findByIdAndDelete(_id)
     .then(() => {
         console.log("Todo Deleted");
-        res.redirect('/')
+        // res.redirect('/')
     })
     .catch((error) => console.error(error))
 }
