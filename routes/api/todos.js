@@ -12,11 +12,15 @@ const app = express();
 
 // * POST
 router.post('/orders/new', todosCtrl.create);
-// router.post('/', todosCtrl.get)
+router.post('/', todosCtrl.get)
 
 // * Get
-// router.post('/orders/todos', todosCtrl.get);
+router.post('/orders/todos', todosCtrl.get);
 router.get('/', todosCtrl.getAllTodos);
+router.get('/:id', todosCtrl.getTodoByID);
+router.post('/update', todosCtrl.update);
+router.post('/delete', todosCtrl.deleteTodo);
+
 
 
 
