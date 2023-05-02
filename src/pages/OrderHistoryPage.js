@@ -1,6 +1,7 @@
 import { checkToken } from "../utilities/users-service";
 import { useState, useEffect } from "react";
 import { getTodos } from "../utilities/todos-service";
+import { removeTodo } from "../utilities/todos-service";
 
 function OrderHistoryPage({user}) {
   const [todos, setTodos] = useState([]);
@@ -38,7 +39,7 @@ function OrderHistoryPage({user}) {
             <p>{todo.todoDetails}</p>
             <p>{todo.done}</p>
             <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={removeTodo}>Delete</button>
             </>
           )
         })}

@@ -5,7 +5,8 @@
 //* handleSubmit <--> [signUp]-users-service <--> [signUp]-users-api <-Internet-> server.js (Express)
 
 import * as usersApi from './users-api';
-
+import { create, get, deleteTodo, update, getAllTodos, getTodoByID } from "../../controllers/api/todos";
+const BASE_URL = '/api/users';
 
 //* Get User
 
@@ -29,4 +30,11 @@ export async function getTodos(userData) {
    // saves token to localStorage   
    return token; 
 }
+
+export async function removeTodo(todoData){
+    console.log("deleting todo...");
+    deleteTodo()
+}
+
+
 

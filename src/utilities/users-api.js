@@ -26,18 +26,6 @@ export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`)
 } 
 
-// * Export Api/Users/Todos
-export function createTodos(todoData){
-  console.log("Create Todos UserAPI");
-  return sendRequest(`${BASE_URL}/orders/new`, 'POST', todoData)
-}
-
-// * Get todos
-export function getTodos(userData){
-  console.log("Create Todos UserAPI");
-  return sendRequest(`${BASE_URL}/orders/todos`, 'POST', userData)
-}
-
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = 'GET', payload = null) {
