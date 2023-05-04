@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 //* Config
 // Logger middleware
 app.use(logger('dev'));
-app.use(cors());
+app.use(cors({origin:["https://final-project-v997.onrender.com/"]}))
 // JSON payload middleware (for data coming from frontend functions)
 app.use(express.json());
 // Configure both serve-favicon & static middleware
