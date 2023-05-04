@@ -10,7 +10,7 @@ https://trello.com/b/0E4rso1V/requirements
 
 Link to Wireframe-
 
-https://www.figma.com/file/35WwDazKLlrONc0PP3csiu/Untitled?node-id=0-3&t=758WgH0uum6nZIvH-0
+https://lucid.app/lucidchart/ddf45f23-90a0-4b0a-be40-a22fb78234d4/edit?invitationId=inv_44de5c9f-fc28-47f7-a023-7f51ea031436&page=0_0#
 
 Challenges-
 
@@ -23,4 +23,3 @@ Future Updates-
 In the future I would like to distinguish between accounts. Make sure that User3 doesn't see User2's Todos.
 
 I would also like to add a feature where you can check a todo off as done, and move that todo to a seperate div where you can see all of your completed Todos, but won't be able to update them.
-
