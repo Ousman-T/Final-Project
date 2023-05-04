@@ -1,6 +1,7 @@
 Creating a full stack application using the full MERN stack with CRUD functionality.
 
 Technologies Used-
+
 [![My Skills](https://skills.thijs.gg/icons?i=mongodb,express,react,nodejs)](https://skills.thijs.gg)
 
 Link to Trello-
