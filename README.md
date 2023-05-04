@@ -23,3 +23,7 @@ Future Updates-
 In the future I would like to distinguish between accounts. Make sure that User3 doesn't see User2's Todos.
 
 I would also like to add a feature where you can check a todo off as done, and move that todo to a seperate div where you can see all of your completed Todos, but won't be able to update them.
+
+Lessons Learned-
+
+FILE STRUCTURE AND FOLLOWING DATA WAS THE THESIS STATEMENT BEHIND THIS PROJECT! This should be apart of the Ten Coding Commandments (Haha). Simply remembering your file structure, and which files/functions require what data/files can turn an overwhelming project into a very straightforward project.
